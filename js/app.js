@@ -11,7 +11,6 @@ searchButton.addEventListener("click", function () {
   const inputValue = inputField.value;
   // error handling
   if (inputValue === "") {
-    // const errorContainer = document.getElementById("error-container");
     const p = document.createElement("p");
     p.innerText = "search field cannot be empty";
     errorContainer.appendChild(p);
@@ -39,11 +38,11 @@ const bookInfo = (bookData) => {
     const div = document.createElement("div");
     div.classList.add("col-md-3");
     div.innerHTML = `
-    <div class="shadow border rounded text-center p-4 m-2">
-      <img src="https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg">
+    <div class="text-center p-4 h-50 m-2">
+      <img width="" src="https://covers.openlibrary.org/b/id/${item.cover_i}-M.jpg">
       <h4>${item.title}</h4>
       <h6>Author: ${item.author_name}</h6>
-      <h6>Published: ${item.publish_year}</h6>
+      <h6>First Publish: ${item.first_publish_year}</h6>
     </div>
     `;
     bookContainer.appendChild(div);
