@@ -33,6 +33,10 @@ searchButton.addEventListener("click", function () {
 });
 
 const bookInfo = (bookData) => {
+  // total result 
+  const dataLength = bookData.length;
+  document.getElementById("total-result").innerText= `Total search result ${dataLength}`;
+
   bookData.forEach((item) => {
     console.log(item);
     const div = document.createElement("div");
@@ -43,6 +47,8 @@ const bookInfo = (bookData) => {
       <h4>${item.title}</h4>
       <h6>Author: ${item.author_name}</h6>
       <h6>First Publish: ${item.first_publish_year}</h6>
+      <h6>Publisher: ${item.publisher}</h6>
+      
     </div>
     `;
     bookContainer.appendChild(div);
