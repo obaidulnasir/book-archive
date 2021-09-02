@@ -12,7 +12,7 @@ searchButton.addEventListener("click", function () {
   // error handling
   if (inputValue === "") {
     const p = document.createElement("p");
-    p.innerText = "search field cannot be empty";
+    p.innerText = "Search field cannot be empty";
     errorContainer.appendChild(p);
     return;
   }
@@ -23,7 +23,7 @@ searchButton.addEventListener("click", function () {
       // error handling
       if (data.numFound === 0) {
         const p = document.createElement("p");
-        p.innerText = "We have no data about this book name";
+        p.innerText = "No data found";
         errorContainer.appendChild(p);
       } else {
         errorContainer.innerHTML = "";
