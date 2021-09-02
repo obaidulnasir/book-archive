@@ -4,6 +4,8 @@ const bookContainer = document.getElementById("book-container");
 const errorContainer = document.getElementById("error-container");
 
 searchButton.addEventListener("click", function () {
+  // error container clear
+  document.getElementById("error-container").innerHTML = "";
   // book container clear
   document.getElementById("book-container").innerHTML = "";
   const inputValue = inputField.value;
@@ -15,20 +17,16 @@ searchButton.addEventListener("click", function () {
     errorContainer.appendChild(p);
     return;
   }
-
   const url = `https://openlibrary.org/search.json?q=${inputValue}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
       // error handling
       if (data.numFound === 0) {
-        // console.log("not found");
         const p = document.createElement("p");
         p.innerText = "We have no data about this book name";
         errorContainer.appendChild(p);
-        
-      } 
-      else {
+      } else {
         errorContainer.innerHTML = "";
       }
       bookInfo(data.docs);
@@ -48,22 +46,8 @@ const bookInfo = (bookData) => {
       <h6>Published: ${item.publish_year}</h6>
     </div>
     `;
-
     bookContainer.appendChild(div);
   });
+  // clear input field
+  document.getElementById("input-field").value = "";
 };
-
-// const searchItem = () => {
-//   const inputField = document.getElementById("input-field");
-//   const inputValue = inputField.value;
-//   const url = `http://openlibrary.org/search.json?q=${inputValue}`;
-//   fetch(url)
-//     .then((res) => res.json())
-//     .then((data) => getBookInfo(data.docs));
-// };
-
-// const getBookInfo = (bookData) => {
-//   for (const book of bookData) {
-//     console.log(book.title);
-//   }
-// };
