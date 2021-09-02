@@ -8,6 +8,7 @@ searchButton.addEventListener("click", function () {
   document.getElementById("error-container").innerHTML = "";
   // book container clear
   document.getElementById("book-container").innerHTML = "";
+  document.getElementById("total-result").innerText= "";
   const inputValue = inputField.value;
   // error handling
   if (inputValue === "") {
@@ -38,7 +39,6 @@ const bookInfo = (bookData) => {
   document.getElementById("total-result").innerText= `Total search result ${dataLength}`;
 
   bookData.forEach((item) => {
-    console.log(item);
     const div = document.createElement("div");
     div.classList.add("col-md-3");
     div.innerHTML = `
